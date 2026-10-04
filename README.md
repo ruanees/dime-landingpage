@@ -1,17 +1,19 @@
 # DIME — Landing page
 
-Página estática (um único `index.html`, sem build), publicada no Cloudflare Pages.
+Página estática (um único `public/index.html`, sem build), publicada como Cloudflare Worker com static assets.
 
 ## Deploy
 
-- **Framework preset:** None
+Configuração em `wrangler.jsonc` (pasta publicada: `public/`). No Cloudflare (Workers & Pages → Import a repository):
+
+- **Project name:** `dime-landingpage` (tem que ser igual ao `name` do `wrangler.jsonc`)
 - **Build command:** (vazio)
-- **Build output directory:** `/`
+- **Deploy command:** `npx wrangler deploy`
 
 Todo push na branch de produção publica a página automaticamente.
 
 ## Pendências antes de divulgar
 
-- `index.html`: trocar `55SEUNUMERO` pelo WhatsApp (55 + DDD + número, sem espaços) — 6 links.
-- `index.html`: trocar `https://SEU-DOMINIO.com.br` em `og:url` e `og:image` pelo domínio final.
-- Adicionar `og.png` (1200x630) na raiz do repositório para o preview em redes sociais.
+- `public/index.html`: trocar `55SEUNUMERO` pelo WhatsApp (55 + DDD + número, sem espaços) — 6 links.
+- `public/index.html`: trocar `https://SEU-DOMINIO.com.br` em `og:url` e `og:image` pelo domínio final.
+- Adicionar `og.png` (1200x630) em `public/` para o preview em redes sociais.

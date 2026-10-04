@@ -338,7 +338,7 @@ for (const p of paginas) {
       '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'DIME',
       applicationCategory: 'BusinessApplication', operatingSystem: 'Web',
       description: p.descricao, url: url('/'), inLanguage: 'pt-BR',
-      offers: { '@type': 'Offer', price: '67', priceCurrency: 'BRL' },
+      offers: { '@type': 'Offer', price: '59', priceCurrency: 'BRL' },
     });
   }
   const faq = faqJsonLd(corpo);

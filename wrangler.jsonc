@@ -2,8 +2,11 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "dime-landingpage",
   "compatibility_date": "2025-09-01",
+  // Gera public/ a partir de src/ antes de cada deploy
+  "build": { "command": "node src/build.mjs" },
   "assets": {
     "directory": "./public",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
   }
 }

@@ -1,0 +1,18 @@
+name: verifica
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # O mesmo comando que a Cloudflare roda antes do deploy. Artigo com
+      # cabeçalho errado quebra aqui, no PR, e não no site no ar.
+      - name: Build do site
+        run: node src/build.mjs

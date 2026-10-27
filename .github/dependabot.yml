@@ -1,0 +1,7 @@
+# O site não tem dependências npm; só as Actions da CI são acompanhadas.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

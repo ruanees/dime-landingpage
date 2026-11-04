@@ -11,3 +11,6 @@ O **DIME** (gestão de carreira para artistas: `ruanees/DIME-BACK`, `ruanees/DIM
 - O CTO do DIME é o **Jimmy**. O Lando não dá ordens nas conversas do DIME.
 
 O guia de trabalho fica em `.claude/skills/`. Para planejar e dividir o trabalho, use a skill `dime-cto` (Jimmy).
+
+## Central do projeto
+Planejamento, agentes, processo e o checklist vivo ficam no **DIME-BACK**, em `docs/jimmy/` (comece pelo README). Toda tarefa sai de um item do `docs/jimmy/CHECKLIST.md` de lá.

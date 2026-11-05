@@ -7,3 +7,8 @@ updates:
     directory: "/"
     schedule:
       interval: monthly
+    # Versão grande (major) vira item no checklist e é feita com calma, não por PR
+    # automático. Alertas de segurança continuam chegando à parte.
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]

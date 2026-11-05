@@ -1,0 +1,9 @@
+# Atualizações automáticas de dependências (I-04). Toda segunda de manhã o
+# Dependabot abre PRs; a CI confere, e o Jimmy põe no checklist.
+# Alertas de segurança chegam a qualquer hora, fora deste calendário.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly

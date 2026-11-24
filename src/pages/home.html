@@ -1,52 +1,77 @@
 ---
 titulo: DIME — Gestão de carreira musical para artistas, empresários e selos
-descricao: Lance sua música sem descobrir problema na última hora. O DIME confere crédito, ISRC, splitshare e capa antes da distribuidora, monta o cronograma de conteúdo e mostra quanto você ganhou.
+descricao: A plataforma que centraliza a gestão da sua carreira, da criação ao resultado. Lançamentos, conteúdo, agenda, shows, equipe e financeiro em um só lugar. Planos a partir de R$ 39,90/mês.
 caminho: /
 nav: inicio
 ---
 <!-- ======== HERO ======== -->
 <div class="hero">
-  <div class="wrap">
-    <span class="rotulo">Gestão de carreira musical</span>
-    <h1>Lance sua música sem descobrir o problema <em>na última hora</em>.</h1>
-    <p class="sub">O DIME confere crédito, ISRC, splitshare e capa antes da distribuidora recusar, monta o cronograma de posts junto com a data e mostra quanto cada lançamento e cada show rendeu de verdade.</p>
-    <div class="ctas">
-      <a class="btn btn--primario" href="{{wa}}" target="_blank" rel="noopener">Falar no WhatsApp</a>
-      <a class="btn btn--secundario" href="#como">Ver como funciona</a>
+  <div class="wrap hero__grid">
+    <div>
+      <span class="rotulo rotulo--linha">Gestão de carreira musical</span>
+      <h1>Sua música é arte.<br> Sua carreira é <em>negócio.</em></h1>
+      <p class="sub">A plataforma que centraliza a gestão da sua carreira, <span class="rosa">da criação ao resultado.</span> Lançamentos, shows, equipe e financeiro em um só lugar.</p>
+      <div class="ctas">
+        <a class="btn btn--primario" href="#tour">Explorar o DIME <svg class="seta" width="20" height="20" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        <a class="btn btn--secundario" href="/planos/">Ver planos</a>
+      </div>
+      <ul class="garantias">
+        <li>A partir de R$ 39,90/mês</li>
+        <li>Sem fidelidade</li>
+        <li>Conta liberada na hora</li>
+      </ul>
     </div>
-    <ul class="garantias">
-      <li>Desconto nos 6 primeiros meses</li>
-      <li>Sem fidelidade</li>
-      <li>Equipe ilimitada</li>
-    </ul>
-
-    <div class="print"><img src="/assets/img/painel.jpg" alt="Painel do DIME com prazos, agenda, tarefas e caixa" width="1800" height="1200" fetchpriority="high"></div>
+    <div class="notebook">
+      <div class="notebook__tela"><img src="/assets/img/painel.jpg" alt="Painel do DIME com prazos da semana, agenda, tarefas e caixa" width="1800" height="1200" fetchpriority="high"></div>
+      <div class="notebook__base" aria-hidden="true"></div>
+    </div>
   </div>
 </div>
 
-<!-- ======== PARA QUEM ======== -->
-<section>
+<!-- ======== PERFIS ======== -->
+<section id="perfis" data-abas>
   <div class="wrap">
-    <div class="sec-topo">
-      <span class="rotulo">Pra quem é</span>
-      <h2>Feito pra quem cuida da carreira de verdade, não só da música</h2>
-      <p>Seja você o próprio artista ou quem segura as pontas de vários, o DIME tira da cabeça o que não deveria estar lá.</p>
+    <div class="sec-topo sec-topo--centro">
+      <h2>Conheça o DIME do seu jeito.</h2>
+      <p>Selecione seu perfil e descubra como o DIME pode transformar sua rotina profissional.</p>
     </div>
 
-    <div class="grid g3">
-      <div class="card perfil">
-        <span class="rotulo">Artista independente</span>
+    <div class="perfis" role="tablist" aria-label="Seu perfil">
+      <button class="vidro perfil-opcao" role="tab" id="aba-artista" aria-controls="perfil-artista" aria-selected="true">
+        <span class="ok" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+        <svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>
+        <span class="t"><b>Artista</b><span>Gerencie sua carreira, lançamentos e projetos.</span></span>
+      </button>
+      <button class="vidro perfil-opcao" role="tab" id="aba-empresario" aria-controls="perfil-empresario" aria-selected="false">
+        <span class="ok" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+        <svg class="ic" aria-hidden="true"><use href="#i-equipe"/></svg>
+        <span class="t"><b>Empresário</b><span>Organize artistas, projetos, equipe e operação.</span></span>
+      </button>
+      <button class="vidro perfil-opcao" role="tab" id="aba-selo" aria-controls="perfil-selo" aria-selected="false">
+        <span class="ok" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+        <svg class="ic" aria-hidden="true"><use href="#i-camadas"/></svg>
+        <span class="t"><b>Gravadora / Selo</b><span>Controle lançamentos, equipes e eventos de vários artistas.</span></span>
+      </button>
+    </div>
+
+    <div class="vidro perfil-painel" role="tabpanel" id="perfil-artista" aria-labelledby="aba-artista">
+      <div>
         <h3>Você compõe, grava, posta e ainda cuida de tudo sozinho</h3>
         <ul>
           <li>Checklist do lançamento pronto, faixa a faixa</li>
           <li>Posts com data e prazo amarrados ao lançamento</li>
           <li>Quanto cada lançamento custou e rendeu</li>
-          <li><strong>Bônus de outubro:</strong> 6 meses de acompanhamento estratégico, com 1 call por mês</li>
         </ul>
-        <a class="link-seta" href="/planos/#solo">Plano Solo, R$ 59/mês</a>
       </div>
-      <div class="card perfil">
-        <span class="rotulo">Empresário</span>
+      <div class="perfil-plano">
+        <small>Plano indicado</small>
+        <strong>Solo</strong>
+        <span class="preco">R$ 39,90/mês · 1 acesso</span><br>
+        <a class="link-seta" href="/planos/#solo">Ver o plano Solo</a>
+      </div>
+    </div>
+    <div class="vidro perfil-painel" role="tabpanel" id="perfil-empresario" aria-labelledby="aba-empresario">
+      <div>
         <h3>Você cuida de alguns artistas e não pode misturar nada</h3>
         <ul>
           <li>Cada artista com agenda, lançamentos e caixa próprios</li>
@@ -54,119 +79,214 @@ nav: inicio
           <li>Conflito de data aparece na hora do sim</li>
           <li>Relatórios por artista pra prestar contas</li>
         </ul>
-        <a class="link-seta" href="/planos/#crew">Plano Crew, R$ 149/mês</a>
       </div>
-      <div class="card perfil">
-        <span class="rotulo">Produtora e selo</span>
+      <div class="perfil-plano">
+        <small>Plano indicado</small>
+        <strong>Crew</strong>
+        <span class="preco">R$ 99,90/mês · 3 artistas e 2 logins de equipe</span><br>
+        <a class="link-seta" href="/planos/#crew">Ver o plano Crew</a>
+      </div>
+    </div>
+    <div class="vidro perfil-painel" role="tabpanel" id="perfil-selo" aria-labelledby="aba-selo">
+      <div>
         <h3>Você tem vários lançamentos ao mesmo tempo e uma equipe grande</h3>
         <ul>
-          <li>Até 20 artistas, pessoas na equipe ilimitadas</li>
-          <li>Cada um vê só o que lhe cabe</li>
+          <li>Vários artistas no mesmo espaço, cada um com o que é seu</li>
+          <li>Cada pessoa da equipe vê só o que lhe cabe</li>
           <li>Produção de eventos com dossiê completo</li>
         </ul>
-        <a class="link-seta" href="/planos/#gravadora">Plano Gravadora, R$ 450/mês</a>
       </div>
+      <div class="perfil-plano">
+        <small>Plano indicado</small>
+        <strong>Gravadora</strong>
+        <span class="preco">R$ 450/mês · até 10 artistas e 10 logins</span><br>
+        <a class="link-seta" href="/planos/#gravadora">Ver o plano Gravadora</a>
+      </div>
+    </div>
+
+    <div class="ctas ctas--centro ctas--coluna">
+      <a class="btn btn--primario" href="#tour">Conhecer funcionalidades <svg class="seta" width="20" height="20" aria-hidden="true"><use href="#i-seta"/></svg></a>
+      <a class="link-sub" href="/funcionalidades/">Explorar todos os recursos</a>
     </div>
   </div>
 </section>
 
-<!-- ======== PROBLEMA ======== -->
-<section class="faixa">
+<!-- ======== TOUR ======== -->
+<section id="tour" data-abas>
   <div class="wrap">
-    <div class="sec-topo">
-      <span class="rotulo">Onde o trabalho trava</span>
-      <h2>Terminar a música é só metade do trabalho</h2>
-      <p>Entre o arquivo finalizado e a faixa no ar existe uma lista de exigências que ninguém avisa antes. E quando aparece, a data já está marcada.</p>
+    <div class="sec-topo sec-topo--centro">
+      <span class="rotulo rotulo--linhas">Experiência interativa</span>
+      <h2>Explore o DIME na prática.</h2>
+      <p>Navegue pelos principais módulos. As telas são do próprio app.</p>
     </div>
 
-    <div class="grid g3">
-      <div class="card dor">
-        <span class="rotulo">Distribuição</span>
-        <h3>A distribuidora recusou e você não sabe por quê</h3>
-        <p>Falta o ISRC de uma faixa, o compositor de outra, a capa veio fora da medida. E a divisão com o produtor ficou num áudio que ninguém lembra igual.</p>
-        <div class="fix"><b>No DIME</b><p>O sistema confere tudo faixa a faixa e mostra quantas pendências faltam antes de você enviar.</p></div>
+    <div class="tour-abas" role="tablist" aria-label="Módulos do DIME">
+      <button role="tab" id="aba-lanc" aria-controls="tour-lanc" aria-selected="true"><svg aria-hidden="true"><use href="#i-disco"/></svg>Lançamentos</button>
+      <button role="tab" id="aba-faixas" aria-controls="tour-faixas" aria-selected="false"><svg aria-hidden="true"><use href="#i-faixa"/></svg>Faixas e direitos</button>
+      <button role="tab" id="aba-cont" aria-controls="tour-cont" aria-selected="false"><svg aria-hidden="true"><use href="#i-quadro"/></svg>Conteúdo e tarefas</button>
+      <button role="tab" id="aba-fin" aria-controls="tour-fin" aria-selected="false"><svg aria-hidden="true"><use href="#i-barras"/></svg>Financeiro</button>
+      <button role="tab" id="aba-rel" aria-controls="tour-rel" aria-selected="false"><svg aria-hidden="true"><use href="#i-relatorio"/></svg>Relatórios</button>
+    </div>
+
+    <div class="tour-painel" role="tabpanel" id="tour-lanc" aria-labelledby="aba-lanc">
+      <div>
+        <span class="rotulo rotulo--linha">Lançamentos</span>
+        <h3>Do estúdio às plataformas.</h3>
+        <p>Cada lançamento com etapa, distribuidora, checklist e as pendências que a plataforma vai cobrar. Você vê o erro antes da distribuidora.</p>
+        <ul>
+          <li>Planejamento, produção, distribuição, pré-save e lançado</li>
+          <li>Pendências contadas antes do envio</li>
+          <li>Capa conferida na medida das plataformas</li>
+        </ul>
       </div>
-      <div class="card dor">
-        <span class="rotulo">Conteúdo</span>
-        <h3>Lançou e não tinha post pronto</h3>
-        <p>Pré-save, release, capa, trecho em vídeo e os cortes verticais. Tudo depende da mesma data e nada tem prazo próprio.</p>
-        <div class="fix"><b>No DIME</b><p>Cronograma de conteúdo amarrado à data do lançamento. Cada peça com responsável e prazo.</p></div>
+      <div class="notebook">
+        <div class="notebook__tela"><img src="/assets/img/lancamentos.jpg" alt="Lista de lançamentos com etapa, distribuidora e pendências" width="1800" height="854" loading="lazy" decoding="async"></div>
+        <div class="notebook__base" aria-hidden="true"></div>
       </div>
-      <div class="card dor">
-        <span class="rotulo">Dinheiro</span>
+    </div>
+    <div class="tour-painel" role="tabpanel" id="tour-faixas" aria-labelledby="aba-faixas">
+      <div>
+        <span class="rotulo rotulo--linha">Faixas e direitos</span>
+        <h3>Num disco, cada faixa é uma obra.</h3>
+        <p>ISRC, créditos, splitshare e ficha de edição ficam na faixa, não no álbum. É o que a distribuidora pede e o que decide quem recebe depois.</p>
+        <ul>
+          <li>Splitshare por faixa, somando 100%</li>
+          <li>Compositor, vocal e produtor creditados</li>
+          <li>Histórico de quem mexeu e quando</li>
+        </ul>
+      </div>
+      <div class="notebook">
+        <div class="notebook__tela"><img src="/assets/img/ficha-lancamento.jpg" alt="Ficha do lançamento com informações, faixas, release e checklist" width="1800" height="1200" loading="lazy" decoding="async"></div>
+        <div class="notebook__base" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="tour-painel" role="tabpanel" id="tour-cont" aria-labelledby="aba-cont">
+      <div>
+        <span class="rotulo rotulo--linha">Conteúdo e tarefas</span>
+        <h3>A campanha nasce junto com a data.</h3>
+        <p>Pré-save, release, capa e cortes em vídeo viram tarefas amarradas ao lançamento, cada uma com dono e prazo.</p>
+        <ul>
+          <li>Cronograma de conteúdo por lançamento</li>
+          <li>Cartão com responsável, prazo e área</li>
+          <li>Reunião marcada já cria a tarefa da pauta</li>
+        </ul>
+      </div>
+      <div class="notebook">
+        <div class="notebook__tela"><img src="/assets/img/tarefas.jpg" alt="Quadro de tarefas com cartão aberto e pauta de reunião" width="1800" height="1161" loading="lazy" decoding="async"></div>
+        <div class="notebook__base" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="tour-painel" role="tabpanel" id="tour-fin" aria-labelledby="aba-fin">
+      <div>
+        <span class="rotulo rotulo--linha">Financeiro</span>
         <h3>Trabalhou muito. Ganhou quanto?</h3>
-        <p>Entrou cachê, saiu estúdio, mixagem, tráfego pago e banda. No fim do mês, a conta nunca é feita.</p>
-        <div class="fix"><b>No DIME</b><p>Recebido, a receber, despesa e saldo, com cada linha ligada ao lançamento ou ao show que a gerou.</p></div>
+        <p>Recebido, a receber, despesa e saldo, com cada linha ligada ao lançamento ou ao show que a gerou.</p>
+        <ul>
+          <li>O ano inteiro em meses</li>
+          <li>Contas a receber e a pagar com vencimento</li>
+          <li>Receita e despesa por lançamento e por show</li>
+        </ul>
       </div>
+      <div class="notebook">
+        <div class="notebook__tela"><img src="/assets/img/financeiro.jpg" alt="Financeiro com recebido, a receber, despesas, saldo e o ano em meses" width="1800" height="1200" loading="lazy" decoding="async"></div>
+        <div class="notebook__base" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="tour-painel" role="tabpanel" id="tour-rel" aria-labelledby="aba-rel">
+      <div>
+        <span class="rotulo rotulo--linha">Relatórios</span>
+        <h3>Preste contas sem montar planilha.</h3>
+        <p>Escolha o que entra na folha e recorte por artista, etapa ou prazo. Sai em planilha ou pronto para imprimir.</p>
+        <ul>
+          <li>Audiovisual, lançamentos, eventos e equipe</li>
+          <li>Progresso e valor por projeto</li>
+          <li>Exportação em planilha e impressão</li>
+        </ul>
+      </div>
+      <div class="notebook">
+        <div class="notebook__tela"><img src="/assets/img/audiovisual.jpg" alt="Relatório com andamento do audiovisual e dos lançamentos" width="1800" height="1200" loading="lazy" decoding="async"></div>
+        <div class="notebook__base" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="ctas ctas--centro">
+      <a class="btn btn--primario" href="/funcionalidades/">Explorar todos os módulos <svg class="seta" width="20" height="20" aria-hidden="true"><use href="#i-seta"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- ======== ANTES x DEPOIS ======== -->
+<!-- ======== FUNCIONALIDADES ======== -->
 <section>
   <div class="wrap">
-    <div class="sec-topo">
-      <span class="rotulo">Antes e depois</span>
-      <h2>Hoje seu lançamento mora em cinco lugares diferentes</h2>
-      <p>E cada lugar sabe uma parte da história. O DIME junta tudo numa ficha só, que a equipe inteira enxerga.</p>
+    <div class="sec-topo sec-topo--centro">
+      <span class="rotulo rotulo--linhas">Funcionalidades</span>
+      <h2>Tudo que você precisa, em um só lugar.</h2>
+      <p>Mais organização, controle e clareza para evoluir na sua carreira musical.</p>
     </div>
-
-    <div class="compara">
-      <div class="card sem">
-        <h3>Sem o DIME</h3>
-        <ul>
-          <li>Planilha de créditos que ninguém atualiza</li>
-          <li>Divisão de direitos combinada por áudio</li>
-          <li>“capa_final_v3_AGORA.jpg” perdida no drive</li>
-          <li>Prazo dos posts na cabeça de uma pessoa só</li>
-          <li>Cachê e despesa anotados no bloco de notas</li>
-        </ul>
-      </div>
-      <div class="card com">
-        <h3>Com o DIME</h3>
-        <ul>
-          <li>Crédito, ISRC e ficha de edição dentro de cada faixa</li>
-          <li>Splitshare fechado por faixa, somando 100%</li>
-          <li>Capa conferida na medida que as plataformas exigem</li>
-          <li>Cronograma com responsável e prazo, visível pra todos</li>
-          <li>Financeiro ligado ao lançamento e ao show</li>
-        </ul>
-      </div>
+    <div class="recursos">
+      <div class="recurso"><svg aria-hidden="true"><use href="#i-camadas"/></svg><div><h3>Lançamentos e direitos</h3><p>Organize singles, EPs e álbuns, confira créditos, splitshare e pendências antes da distribuição.</p></div></div>
+      <div class="recurso"><svg aria-hidden="true"><use href="#i-claquete"/></svg><div><h3>Projetos audiovisuais</h3><p>Gerencie clipes, campanhas, equipes, prazos e versões de arquivos.</p></div></div>
+      <div class="recurso"><svg aria-hidden="true"><use href="#i-megafone"/></svg><div><h3>Conteúdo e divulgação</h3><p>Planeje campanhas e cronogramas de publicações vinculados aos lançamentos.</p></div></div>
+      <div class="recurso"><svg aria-hidden="true"><use href="#i-agenda-ok"/></svg><div><h3>Shows e eventos</h3><p>Organize contratos, cachês, riders e a agenda sem conflito de data.</p></div></div>
+      <div class="recurso"><svg aria-hidden="true"><use href="#i-equipe"/></svg><div><h3>Agenda e equipe</h3><p>Centralize compromissos, tarefas e responsáveis, cada um vendo só o que lhe cabe.</p></div></div>
+      <div class="recurso"><svg aria-hidden="true"><use href="#i-barras"/></svg><div><h3>Gestão financeira</h3><p>Acompanhe receitas, despesas e o resultado de cada lançamento e show.</p></div></div>
+    </div>
+    <div class="ctas ctas--centro" style="margin-top:clamp(44px,6vw,64px)">
+      <a class="btn btn--primario" href="/planos/">Conhecer os planos <svg class="seta" width="20" height="20" aria-hidden="true"><use href="#i-seta"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- ======== COMO FUNCIONA ======== -->
-<section id="como" class="faixa">
-  <div class="wrap">
-    <div class="sec-topo">
-      <span class="rotulo">Como funciona</span>
-      <h2>Três passos, do planejamento ao lançado</h2>
+<section id="como">
+  <div class="wrap como">
+    <div class="sec-topo" style="margin-bottom:0">
+      <span class="rotulo rotulo--linha">Como funciona</span>
+      <h2>Três passos, do planejamento ao lançado.</h2>
+      <p>Você cadastra uma vez e o DIME acompanha até o dia do lançamento, no computador e no celular.</p>
     </div>
-
     <ol class="passos">
-      <li>
-        <h3>Cadastre o lançamento e a data</h3>
-        <p>Single, EP ou álbum, com as faixas, a distribuidora e o dia em que vai pro ar.</p>
-      </li>
-      <li>
-        <h3>O DIME aponta o que falta</h3>
-        <p>Crédito, ISRC, splitshare e capa conferidos faixa a faixa, com as pendências contadas antes do envio.</p>
-      </li>
-      <li>
-        <h3>Cada um sabe o que fazer até o dia</h3>
-        <p>Posts, release e pré-save viram tarefas com dono e prazo. Você acompanha tudo do celular.</p>
-      </li>
+      <li><div><h3>Cadastre o lançamento e a data</h3><p>Single, EP ou álbum, com as faixas, a distribuidora e o dia em que vai pro ar.</p></div></li>
+      <li><div><h3>O DIME aponta o que falta</h3><p>Crédito, ISRC, splitshare e capa conferidos faixa a faixa, com as pendências contadas antes do envio.</p></div></li>
+      <li><div><h3>Cada um sabe o que fazer até o dia</h3><p>Posts, release e pré-save viram tarefas com dono e prazo. Você acompanha tudo do celular.</p></div></li>
     </ol>
+  </div>
+</section>
 
-    <div class="mod" style="margin-top:clamp(46px,7vw,84px)">
-      <div class="mod__txt">
-        <span class="rotulo">Lançamentos</span>
-        <h3>Você vê o erro antes da distribuidora</h3>
-        <p>Cada lançamento mostra a etapa, a distribuidora, o checklist e quantas pendências ainda impedem o envio. Sem surpresa na véspera.</p>
-        <a class="link-seta" href="/funcionalidades/">Ver todas as funcionalidades</a>
+<!-- ======== SEM x COM ======== -->
+<section>
+  <div class="wrap">
+    <div class="sec-topo sec-topo--centro">
+      <span class="rotulo rotulo--linhas">Vale a pena assinar o DIME?</span>
+      <h2>Mais controle, organização e resultado na sua <span class="sublinhado">carreira.</span></h2>
+      <p>Uma plataforma feita para tirar a burocracia do caminho e deixar você focado no que importa: a música.</p>
+    </div>
+    <div class="compara">
+      <div class="sem">
+        <h3>Sem o DIME</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-camadas"/></svg>Informações em vários lugares</li>
+          <li><svg aria-hidden="true"><use href="#i-alerta"/></svg>Lançamento recusado na última hora</li>
+          <li><svg aria-hidden="true"><use href="#i-doc"/></svg>Créditos e splitshare combinados por áudio</li>
+          <li><svg aria-hidden="true"><use href="#i-agenda"/></svg>Prazos que se perdem</li>
+          <li><svg aria-hidden="true"><use href="#i-tendencia"/></svg>Cachê e despesa no bloco de notas</li>
+        </ul>
       </div>
-      <div class="print"><img src="/assets/img/lancamentos.jpg" alt="Lista de lançamentos com etapa, distribuidora e pendências" width="1800" height="1200" loading="lazy" decoding="async"></div>
+      <div class="com">
+        <h3>Com o DIME</h3>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-camadas"/></svg>Tudo centralizado em um só lugar</li>
+          <li><svg aria-hidden="true"><use href="#i-circulo-ok"/></svg>Pendências conferidas antes do envio</li>
+          <li><svg aria-hidden="true"><use href="#i-video"/></svg>Projetos audiovisuais com versões e equipe</li>
+          <li><svg aria-hidden="true"><use href="#i-agenda"/></svg>Agenda, tarefas e conteúdo com prazo</li>
+          <li><svg aria-hidden="true"><use href="#i-barras"/></svg>Financeiro ligado a cada lançamento e show</li>
+        </ul>
+      </div>
+    </div>
+    <div class="compara-fim">
+      <p>Organize seus projetos, ganhe tempo e avance com mais consistência.</p>
+      <strong>Planos a partir de <span>R$ 39,90/mês.</span></strong>
+      <div class="ctas ctas--centro"><a class="btn btn--primario" href="/planos/">Escolher meu plano <svg class="seta" width="20" height="20" aria-hidden="true"><use href="#i-seta"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -175,8 +295,8 @@ nav: inicio
 <section>
   <div class="wrap">
     <div class="sec-topo">
-      <span class="rotulo">Guia do lançamento</span>
-      <h2>Primeiro lançamento? A gente explica sem complicar</h2>
+      <span class="rotulo rotulo--linha">Guia do lançamento</span>
+      <h2>Primeiro lançamento? A gente explica sem complicar.</h2>
       <p>O que é um lançamento, como a distribuição funciona e o que fazer em cada semana. Guias gratuitos, sem juridiquês.</p>
     </div>
     {{artigos:o-que-e-um-lancamento,etapas-de-um-lancamento,como-funciona-a-distribuicao}}
@@ -184,30 +304,12 @@ nav: inicio
   </div>
 </section>
 
-<!-- ======== PREÇO ======== -->
-<section class="faixa">
-  <div class="wrap preco-faixa">
-    <div>
-      <span class="rotulo">Planos</span>
-      <h2>A partir de <strong>R$ 59/mês</strong>. Você paga por artista, não por pessoa.</h2>
-      <p>Convide produtor, designer, social media e banda sem pagar a mais. O preço acompanha quantos artistas você gerencia.</p>
-      <div class="ctas"><a class="btn btn--primario" href="/planos/">Ver planos e preços</a></div>
-    </div>
-    <ul>
-      <li>Equipe ilimitada em todos os planos</li>
-      <li>Assinou o Solo em outubro? Ganha 6 meses de acompanhamento estratégico, com 1 call por mês</li>
-      <li>Sem fidelidade: cancela quando quiser</li>
-      <li>Pagamento por PIX e conta liberada na hora</li>
-    </ul>
-  </div>
-</section>
-
 <!-- ======== FAQ ======== -->
 <section>
   <div class="wrap">
-    <div class="sec-topo">
-      <span class="rotulo">Dúvidas</span>
-      <h2>O que perguntam antes de entrar</h2>
+    <div class="sec-topo sec-topo--centro">
+      <span class="rotulo rotulo--linhas">Dúvidas</span>
+      <h2>O que perguntam antes de entrar.</h2>
     </div>
     <div class="faq">
       <details open>

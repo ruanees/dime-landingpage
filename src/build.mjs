@@ -121,7 +121,7 @@ function aplicarMarcadores(html) {
 const NAV = [
   { chave: 'funcionalidades', href: '/funcionalidades/', texto: 'Funcionalidades' },
   { chave: 'planos', href: '/planos/', texto: 'Planos' },
-  { chave: 'guia', href: '/guia/', texto: 'Guia do lançamento' },
+  { chave: 'guia', href: '/guia/', texto: 'Guia' },
 ];
 
 function layout({ titulo, descricao, caminho, nav, corpo, jsonld = [], tipo = 'website', classeBody = '' }) {
@@ -134,7 +134,7 @@ function layout({ titulo, descricao, caminho, nav, corpo, jsonld = [], tipo = 'w
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(tituloCompleto)}</title>
 <meta name="description" content="${esc(descricao)}">
-<meta name="theme-color" content="#0C0A12">
+<meta name="theme-color" content="#08060F">
 <link rel="canonical" href="${url(caminho)}">
 
 <meta property="og:site_name" content="DIME">
@@ -146,7 +146,6 @@ function layout({ titulo, descricao, caminho, nav, corpo, jsonld = [], tipo = 'w
 <meta property="og:image" content="${url('/assets/og.jpg')}">
 <meta name="twitter:card" content="summary_large_image">
 
-<script>try{var t=localStorage.getItem('dime-tema');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,6 +154,7 @@ function layout({ titulo, descricao, caminho, nav, corpo, jsonld = [], tipo = 'w
 ${ld}
 </head>
 <body${classeBody ? ` class="${classeBody}"` : ''}>
+<div class="fundo" aria-hidden="true"></div>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -162,6 +162,27 @@ ${ld}
       <rect width="64" height="64" rx="15" fill="#2A1060"/>
       <g fill="#B9A3FF"><path d="M18 17 L41 32 L18 47 Z"/><rect x="44" y="17" width="6.5" height="30" rx="3"/></g>
     </symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></symbol>
+    <symbol id="i-equipe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7.5" r="3"/><circle cx="5.5" cy="9.5" r="2.2"/><circle cx="18.5" cy="9.5" r="2.2"/><path d="M6.5 19a5.5 5.5 0 0 1 11 0zM2 18.5a3.8 3.8 0 0 1 4.6-3.8M22 18.5a3.8 3.8 0 0 0-4.6-3.8"/></symbol>
+    <symbol id="i-pessoa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></symbol>
+    <symbol id="i-camadas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5L12 21l9-4.5"/></symbol>
+    <symbol id="i-claquete" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="11.5" rx="2"/><path d="M3.5 9l-.6-3.2 15.7-2.9.6 3.2zM7.6 5.4l2.6 2.9M12.6 4.5l2.6 2.9M10.5 12.5v5l4.3-2.5z"/></symbol>
+    <symbol id="i-megafone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4a1 1 0 0 0 1 1h2l9 4.5V4.5L7 9H5a1 1 0 0 0-1 1z"/><path d="M7 15l1.5 5h2.5l-1.3-4.7M19.5 9.5a3.5 3.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-agenda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-agenda-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/></symbol>
+    <symbol id="i-barras" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="13" width="4" height="7.5" rx="1"/><rect x="10" y="8.5" width="4" height="12" rx="1"/><rect x="16.5" y="3.5" width="4" height="17" rx="1"/></symbol>
+    <symbol id="i-disco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M12 6.5A5.5 5.5 0 0 0 6.5 12"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></symbol>
+    <symbol id="i-alerta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L2.5 20h19z"/><path d="M12 10v4.5M12 17.2v.3"/></symbol>
+    <symbol id="i-tendencia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/></symbol>
+    <symbol id="i-circulo-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 10"/></symbol>
+    <symbol id="i-estrela" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1L3.2 9.4l6.1-.8z"/></symbol>
+    <symbol id="i-quadro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16M5.5 8h1.5M11.5 8h1.5M11.5 11.5h1.5M17.5 8h1"/></symbol>
+    <symbol id="i-relatorio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 16v-3M12 16V9M16 16v-5"/></symbol>
+    <symbol id="i-faixa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5.5l11-2V16"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></symbol>
   </defs>
 </svg>
 
@@ -175,8 +196,7 @@ ${NAV.map((n) => `      <a href="${n.href}"${n.chave === nav ? ' aria-current="p
       <a class="btn btn--primario" href="${esc(wa())}" target="_blank" rel="noopener">Falar no WhatsApp</a>
     </nav>
     <div class="hdr">
-      <button class="tema" onclick="alternarTema()" aria-label="Alternar tema claro e escuro"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
-      <a class="btn btn--primario btn--sm" href="${esc(wa())}" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="btn btn--contorno btn--sm" href="${esc(config.appUrl)}">Entrar</a>
       <button class="menu-btn" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">☰</button>
     </div>
   </div>
@@ -191,7 +211,7 @@ ${corpo}
     <div class="rodape__grid">
       <div class="rodape__marca">
         <a class="logo" href="/" style="font-size:16px" aria-label="DIME — início"><svg viewBox="0 0 64 64"><use href="#marca"/></svg><b>DIME</b></a>
-        <p>Gestão de carreira musical. Do arquivo pronto à faixa no ar, sem planilha paralela.</p>
+        <p>Gestão de carreira musical. Da criação ao resultado, sem planilha paralela.</p>
       </div>
       <div>
         <h4>Produto</h4>
@@ -199,6 +219,7 @@ ${corpo}
           <li><a href="/funcionalidades/">Funcionalidades</a></li>
           <li><a href="/planos/">Planos e preços</a></li>
           <li><a href="/planos/#duvidas">Dúvidas frequentes</a></li>
+          <li><a href="${esc(config.appUrl)}">Entrar no DIME</a></li>
         </ul>
       </div>
       <div>
@@ -338,7 +359,7 @@ for (const p of paginas) {
       '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'DIME',
       applicationCategory: 'BusinessApplication', operatingSystem: 'Web',
       description: p.descricao, url: url('/'), inLanguage: 'pt-BR',
-      offers: { '@type': 'Offer', price: '59', priceCurrency: 'BRL' },
+      offers: { '@type': 'Offer', price: '39.90', priceCurrency: 'BRL' },
     });
   }
   const faq = faqJsonLd(corpo);

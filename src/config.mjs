@@ -3,6 +3,9 @@ export default {
   // Endereço final do site, sem barra no fim. Usado nos links canônicos, sitemap e prévias de compartilhamento.
   siteUrl: 'https://dime.com.br',
 
+  // Endereço do app (botão "Entrar" do topo).
+  appUrl: 'https://dime-front.balbuquerc.workers.dev',
+
   // WhatsApp: 55 + DDD + número, só dígitos. Ex.: '5585999998888'
   whatsapp: '55SEUNUMERO',
 

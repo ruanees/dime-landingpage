@@ -1,11 +1,3 @@
-// Tema claro/escuro (o tema salvo já é aplicado por um script no <head>)
-function alternarTema(){
-  var n = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  document.documentElement.dataset.theme = n;
-  try { localStorage.setItem('dime-tema', n); } catch (e) {}
-  document.querySelector('meta[name=theme-color]').setAttribute('content', n === 'dark' ? '#0C0A12' : '#F6F5FA');
-}
-
 // Menu no celular
 (function(){
   var topo = document.querySelector('header.topo');
@@ -48,4 +40,35 @@ function alternarTema(){
   }
   window.addEventListener('scroll', atualizar, { passive: true });
   atualizar();
+})();
+
+// Abas: perfis ("Conheça o DIME do seu jeito") e tour ("Explore o DIME na prática").
+// Sem JS, todos os painéis aparecem um embaixo do outro.
+(function(){
+  document.querySelectorAll('[data-abas]').forEach(function(grupo){
+    var abas = Array.prototype.slice.call(grupo.querySelectorAll('[role="tab"]'));
+    function escolher(aba, foco){
+      abas.forEach(function(a){
+        var sel = a === aba;
+        a.setAttribute('aria-selected', sel);
+        a.tabIndex = sel ? 0 : -1;
+        var p = document.getElementById(a.getAttribute('aria-controls'));
+        if (p) p.hidden = !sel;
+      });
+      if (foco) aba.focus();
+      if (aba.scrollIntoView && grupo.querySelector('.tour-abas')) {
+        var lista = aba.parentElement;
+        if (lista.scrollWidth > lista.clientWidth) lista.scrollTo({ left: aba.offsetLeft - 16, behavior: 'smooth' });
+      }
+    }
+    abas.forEach(function(aba, i){
+      aba.addEventListener('click', function(){ escolher(aba); });
+      aba.addEventListener('keydown', function(ev){
+        var d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[ev.key];
+        if (d) { ev.preventDefault(); escolher(abas[(i + d + abas.length) % abas.length], true); }
+      });
+    });
+    var inicial = abas.filter(function(a){ return a.getAttribute('aria-selected') === 'true'; })[0] || abas[0];
+    if (inicial) escolher(inicial);
+  });
 })();

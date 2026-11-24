@@ -142,3 +142,72 @@
     area.addEventListener('pointerleave', function(){ nb.style.setProperty('--ry', '0deg'); nb.style.setProperty('--rx', '0deg'); });
   });
 })();
+
+// Onda sonora da abertura: barras ondulam sozinhas e crescem perto do cursor (ou do dedo).
+(function(){
+  var cv = document.querySelector('.abertura__onda');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var area = cv.parentElement;
+  var parado = !document.documentElement.classList.contains('anima');
+  var W = 0, H = 0, dpr = 1, alvoX = -1, mx = -1, forca = 0, alvoForca = 0, visivel = true, t0 = performance.now();
+
+  function medir(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (parado) desenhar(0);
+  }
+
+  function desenhar(t){
+    ctx.clearRect(0, 0, W, H);
+    var passo = W < 600 ? 9 : 11, larg = W < 600 ? 3 : 4;
+    var n = Math.floor(W / passo), sobra = (W - (n - 1) * passo) / 2;
+    var grad = ctx.createLinearGradient(0, H, 0, 0);
+    grad.addColorStop(0, 'rgba(122,48,247,.85)');
+    grad.addColorStop(1, 'rgba(224,123,234,.95)');
+    ctx.fillStyle = grad;
+    for (var i = 0; i < n; i++) {
+      var x = sobra + i * passo, u = x / W;
+      // ondulação de base: duas senoides lentas
+      var base = 0.16 + 0.10 * Math.sin(u * 9 + t * 1.3) + 0.07 * Math.sin(u * 23 - t * 2.1);
+      // crescimento perto do cursor (curva em sino)
+      var bump = 0;
+      if (mx >= 0) { var d = (x - mx) / (W < 600 ? 70 : 120); bump = Math.exp(-d * d) * 0.72 * forca; }
+      var h = Math.max(3, Math.min(1, base + bump) * H);
+      var y = (H - h) / 2;
+      ctx.globalAlpha = 0.35 + 0.65 * Math.min(1, base * 2 + bump);
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x - larg / 2, y, larg, h, larg / 2); else ctx.rect(x - larg / 2, y, larg, h);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function quadro(agora){
+    if (visivel) {
+      if (alvoX >= 0) mx = mx < 0 ? alvoX : mx + (alvoX - mx) * 0.12;
+      forca += (alvoForca - forca) * 0.08;
+      desenhar((agora - t0) / 1000);
+    }
+    requestAnimationFrame(quadro);
+  }
+
+  function apontar(ev){
+    var r = cv.getBoundingClientRect();
+    alvoX = ev.clientX - r.left; alvoForca = 1;
+  }
+  area.addEventListener('pointermove', apontar, { passive: true });
+  area.addEventListener('pointerdown', apontar, { passive: true });
+  area.addEventListener('pointerleave', function(){ alvoForca = 0; });
+  area.addEventListener('pointerup', function(ev){ if (ev.pointerType !== 'mouse') alvoForca = 0; });
+
+  window.addEventListener('resize', medir);
+  medir();
+  if (parado) return;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(e){ visivel = e[0].isIntersecting; }).observe(area);
+  }
+  requestAnimationFrame(quadro);
+})();

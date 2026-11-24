@@ -72,3 +72,73 @@
     if (inicial) escolher(inicial);
   });
 })();
+
+// ---------- Animações e interação ----------
+(function(){
+  var raiz = document.documentElement;
+  var anima = raiz.classList.contains('anima');
+  var cursorFino = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // Topo mais sólido depois de rolar
+  var topo = document.querySelector('header.topo');
+  if (topo) {
+    var aoRolar = function(){ topo.classList.toggle('rolou', window.scrollY > 24); };
+    window.addEventListener('scroll', aoRolar, { passive: true }); aoRolar();
+  }
+
+  // Elementos surgem ao entrar na tela (com atraso em cascata entre irmãos)
+  if (anima && 'IntersectionObserver' in window) {
+    var alvos = '.sec-topo, .perfis > *, .tour-abas, .recurso, .passos li, .compara > div, .compara-fim,'
+      + ' .artigo-card, .faq details, .barra-cta, .plano, .mod, .trilha li, .card, .telas-mob figure, .cat-titulo, .aviso, .form';
+    var els = Array.prototype.slice.call(document.querySelectorAll(alvos))
+      .filter(function(el){ return !el.closest('.abertura'); });
+    els.forEach(function(el){
+      var irmaos = Array.prototype.filter.call(el.parentElement.children, function(x){ return x.matches(alvos); });
+      el.style.setProperty('--i', Math.min(irmaos.indexOf(el), 6));
+      el.classList.add('revelar');
+    });
+    var obs = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visivel'); obs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    els.forEach(function(el){ obs.observe(el); });
+  }
+
+  // "Como funciona": o passo que está no meio da tela acende
+  var passos = document.querySelector('.passos');
+  if (passos && 'IntersectionObserver' in window) {
+    var itens = passos.querySelectorAll('li');
+    passos.classList.add('ao-vivo'); itens[0].classList.add('ativo');
+    var obsP = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(e){
+        if (!e.isIntersecting) return;
+        itens.forEach(function(li){ li.classList.toggle('ativo', li === e.target); });
+      });
+    }, { rootMargin: '-40% 0px -45% 0px' });
+    itens.forEach(function(li){ obsP.observe(li); });
+  }
+
+  if (!cursorFino) return;
+
+  // Luz que segue o cursor nos cards de vidro
+  document.querySelectorAll('.vidro, .card, .artigo-card, .trilha a').forEach(function(c){
+    c.classList.add('luzivel');
+    c.addEventListener('pointermove', function(ev){
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+    });
+  });
+
+  // Notebook inclina de leve acompanhando o cursor
+  if (!anima) return;
+  document.querySelectorAll('.notebook').forEach(function(nb){
+    var area = nb.closest('.tour-painel, .mod') || nb;
+    area.addEventListener('pointermove', function(ev){
+      var r = nb.getBoundingClientRect();
+      var x = (ev.clientX - r.left) / r.width - 0.5, y = (ev.clientY - r.top) / r.height - 0.5;
+      nb.style.setProperty('--ry', (x * 6).toFixed(2) + 'deg');
+      nb.style.setProperty('--rx', (-y * 4).toFixed(2) + 'deg');
+    });
+    area.addEventListener('pointerleave', function(){ nb.style.setProperty('--ry', '0deg'); nb.style.setProperty('--rx', '0deg'); });
+  });
+})();

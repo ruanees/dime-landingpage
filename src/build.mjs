@@ -146,6 +146,7 @@ function layout({ titulo, descricao, caminho, nav, corpo, jsonld = [], tipo = 'w
 <meta property="og:image" content="${url('/assets/og.jpg')}">
 <meta name="twitter:card" content="summary_large_image">
 
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('anima')</script>
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
